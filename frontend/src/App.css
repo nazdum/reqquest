@@ -1,0 +1,33 @@
+.app {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputs{
+    width: 100%;
+}
+
+.outputs{
+    width: 100%;
+}
+
+#response-textarea{
+    width: 70%;
+    height: 300px;
+    resize: none;
+    overflow-y: scroll;
+    margin-top: 10px;
+}
+
+#url{
+    width: 40%;
+    height: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+#request-button{
+    height: 28px;
+}
