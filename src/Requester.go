@@ -46,7 +46,7 @@ func Requester(url string) models.HttpResponse {
 	return models.HttpResponse{
 		StatusCode: response.StatusCode,
 		Body:       bodyString,
-    Latency:    latency,
+    		Latency:    latency,
 	}
 
 }
