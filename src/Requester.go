@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-  "time"
+	"time"
 	"reqquest/src/models"
 )
 
 func Requester(url string) models.HttpResponse {
 
-  startTime := time.Now()
+  	startTime := time.Now()
 
 	response, error := http.Get(url)
 
@@ -29,18 +29,19 @@ func Requester(url string) models.HttpResponse {
 	bodyBytes, _ := io.ReadAll(response.Body)
 
   
-  if error != nil {
-  		latency := time.Since(startTime).Milliseconds()
-  		return models.HttpResponse{
-  			StatusCode: response.StatusCode,
-  			Body:       "Error reading response body",
-  			Latency:    latency,
-  		}
-  } 
+	if error != nil {
+		latency := time.Since(startTime).Milliseconds()
+	  	
+		return models.HttpResponse{
+	 		StatusCode: response.StatusCode,
+		  	Body:       "Error reading response body",
+		  	Latency:    latency,
+	  	}
+	} 
 	
 	latency := time.Since(startTime).Milliseconds()
 
-  bodyString := string(bodyBytes)
+	bodyString := string(bodyBytes)
 
 
 	return models.HttpResponse{
