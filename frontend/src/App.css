@@ -34,7 +34,7 @@
 
 .status-container {
   display: flex;
-  align-items: baseline; /* Alinea por la base del texto */
+  align-items: baseline; 
   gap: 8px;
   margin: 5px 150px 5px 150px;
   padding: 8px;

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-  "time" // Importación necesaria para usar time.Now()
+  "time"
 	"reqquest/src/models"
 )
 
@@ -16,10 +16,9 @@ func Requester(url string) models.HttpResponse {
 
 	if error != nil {
 		fmt.Println(error)
-		// Si hay error, igual calculamos la latencia hasta este punto
 		latency := time.Since(startTime).Milliseconds()
 		return models.HttpResponse{
-			StatusCode: 0, // Código 0 indica error
+			StatusCode: 0, 
 			Body:       fmt.Sprintf("Error: %v", error),
 			Latency:    latency,
 		}
