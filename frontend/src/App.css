@@ -31,3 +31,25 @@
 #request-button{
     height: 28px;
 }
+
+.status-container {
+  display: flex;
+  align-items: baseline; 
+  gap: 8px;
+  margin: 5px 150px 5px 150px;
+  padding: 8px;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+.status-container h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.status-container h3:first-child::after {
+  content: "•";
+  margin: 0 8px;
+  color: #aaa;
+}
