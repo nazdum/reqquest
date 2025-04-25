@@ -1,0 +1,28 @@
+.inputs {
+  width: 100%;
+}
+
+#url {
+  width: 40%;
+  height: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#request-button {
+  height: 28px;
+}
+
+
+
+.status-container h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.status-container h3:first-child::after {
+  content: "•";
+  margin: 0 8px;
+  color: #aaa;
+}
