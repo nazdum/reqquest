@@ -1,4 +1,3 @@
-// src/components/OutputArea.js
 import React from 'react';
 import './outputArea.css'
 
