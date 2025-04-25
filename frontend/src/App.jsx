@@ -1,51 +1,38 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import './App.css';
-import {Request} from "../wailsjs/go/main/App";
+import { Request } from "../wailsjs/go/main/App";
+import InputArea from './components/input/InputArea';
+import OutputArea from './components/output/OutputArea';
 
 function App() {
 
-    const [resultText, setResultText] = useState('');
-    const [statusCode, setStatusCode] = useState('Status');
     const [url, setUrl] = useState('');
-    const [latency, setLatency] = useState(0);
     const updateUrl = (e) => setUrl(e.target.value);
 
-    const request = async () =>{
-        try{
+    const [outputData, setOutputData] = useState({
+        statusCode: 'Status',
+        latency: 0,
+        resultText: ''
+    })
+
+    const request = async () => {
+        try {
             const response = await Request(url);
-            setResultText(response.Body);
-            setStatusCode(response.StatusCode);
-            setLatency(response.Latency);
-        }catch(error){
+            setOutputData({
+                statusCode: response.StatusCode,
+                latency: response.Latency,
+                resultText: response.Body
+            })
+        } catch (error) {
             console.log(error);
         }
     }
 
-    const statusCodeStyle = {
-        color: statusCode === 200 ? 'green' : (statusCode === 404 ? 'red' : 'black')
-    };
-
-    const latencyStyle = {
-        color: latency  <= 100 ? 'green' : (latency >= 300 ? 'red' : 'black')
-    };
 
     return (
         <div className="app">
-
-            <div className="inputs">
-            <input placeholder="https://www.test.com/api/" id="url" onChange={updateUrl} type="text"/>
-            <button id="request-button" onClick={request}>Request</button>
-            </div>
-
-            <div className="outputs">
-
-              <div className="status-container">
-                <h3 style={statusCodeStyle}> {statusCode}</h3>
-                <h3 style={latencyStyle}>{latency} ms</h3>
-              </div>
-            <textarea readOnly id="response-textarea" value={resultText} />
-            </div>
-
+            <InputArea onRequest={request} onUrlChange={updateUrl} />
+            <OutputArea responseData={outputData} />
         </div>
     )
 }
