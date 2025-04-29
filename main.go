@@ -18,7 +18,7 @@ func main() {
 		Title:         "reqquest",
 		Width:         1024,
 		Height:        400,
-		DisableResize: true,
+		DisableResize: false,
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},

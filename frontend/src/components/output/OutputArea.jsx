@@ -21,9 +21,17 @@ function OutputArea({ responseData }) {
       <div className="status-container">
         <h3 style={statusCodeStyle}> {statusCode}</h3>
         <h3 style={latencyStyle}>{latency} ms</h3>
-      </div>
-      <div id="container-response-textarea">
-        <textarea readOnly id="response-textarea" value={resultText} />
+      </div>                
+      <div className="textareas-container">
+        <div id="container-history-textarea">
+          <label className="textarea-label">History:</label>
+          <textarea readOnly id="history-textarea"  />
+        </div>
+
+        <div id="container-response-textarea">
+          <textarea readOnly id="response-textarea" value={resultText} />
+        </div>
+
       </div>
     </div>
   );
