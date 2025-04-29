@@ -17,11 +17,11 @@ function App() {
 
     const request = async () => {
         try {
-            const response = await Request(url);
+            const response = await Request(url , "GET");
             setOutputData({
-                statusCode: response.StatusCode,
-                latency: response.Latency,
-                resultText: response.Body
+                statusCode: response.statusCode,
+                latency: response.latency,
+                resultText: response.body
             })
         } catch (error) {
             console.log(error);

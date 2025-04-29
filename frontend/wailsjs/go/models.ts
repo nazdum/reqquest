@@ -1,9 +1,13 @@
 export namespace models {
 	
 	export class HttpResponse {
-	    StatusCode: number;
-	    Body: string;
-	    Latency: number;
+	    status: string;
+	    statusCode: number;
+	    headers: Record<string, string[]>;
+	    body: string;
+	    contentLength: number;
+	    latency: number;
+	    error: string;
 	
 	    static createFrom(source: any = {}) {
 	        return new HttpResponse(source);
@@ -11,9 +15,13 @@ export namespace models {
 	
 	    constructor(source: any = {}) {
 	        if ('string' === typeof source) source = JSON.parse(source);
-	        this.StatusCode = source["StatusCode"];
-	        this.Body = source["Body"];
-	        this.Latency = source["Latency"];
+	        this.status = source["status"];
+	        this.statusCode = source["statusCode"];
+	        this.headers = source["headers"];
+	        this.body = source["body"];
+	        this.contentLength = source["contentLength"];
+	        this.latency = source["latency"];
+	        this.error = source["error"];
 	    }
 	}
 
