@@ -24,7 +24,7 @@ function OutputArea({ responseData }) {
       </div>                
       <div className="textareas-container">
         <div id="container-history-textarea">
-          <label className="textarea-label">History:</label>
+          <label className="textarea-label">History</label>
           <textarea readOnly id="history-textarea"  />
         </div>
 
