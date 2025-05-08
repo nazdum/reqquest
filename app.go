@@ -18,6 +18,6 @@ func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
 }
 
-func (a *App) Request(url string) models.HttpResponse {
-	return src.Requester(url)
+func (a *App) Request(url string, method string) models.HttpResponse {
+	return src.Requester(url, method)
 }
